@@ -1,0 +1,18 @@
+TINYINFER 1
+nodes 11
+input x 2 2 2
+constant w1 2 2 3
+1 -1 -1 -1 -1 1
+constant b1 1 3
+1 1 1
+matmul h1 x w1
+bias h2 h1 b1
+relu h3 h2
+constant w2 2 3 2
+1 -2 3 3 -2 1
+constant b2 1 2
+2 2
+matmul h4 h3 w2
+bias h5 h4 b2
+softmax h6 h5
+output h6

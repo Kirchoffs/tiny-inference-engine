@@ -1,0 +1,6 @@
+.vscode/
+
+build/
+build-release/
+build-metal/
+tmp/

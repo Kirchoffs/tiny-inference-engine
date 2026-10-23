@@ -9,6 +9,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_library(tiny_inference_engine
     src/tensor.cpp
     src/ops.cpp
+    src/graph.cpp
 )
 target_include_directories(tiny_inference_engine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
@@ -27,6 +28,7 @@ add_executable(tiny_inference_engine_tests
     tests/test_main.cpp
     tests/test_tensor.cpp
     tests/test_ops.cpp
+    tests/test_graph.cpp
 )
 target_link_libraries(tiny_inference_engine_tests PRIVATE tiny_inference_engine)
 target_include_directories(tiny_inference_engine_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/tests)
@@ -36,3 +38,4 @@ endif()
 
 add_test(NAME tensor_tests COMMAND tiny_inference_engine_tests tensor)
 add_test(NAME ops_tests COMMAND tiny_inference_engine_tests ops)
+add_test(NAME graph_tests COMMAND tiny_inference_engine_tests graph)
